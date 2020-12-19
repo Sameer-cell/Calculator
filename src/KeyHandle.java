@@ -11,7 +11,13 @@ public class KeyHandle implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub
+        char character = e.getKeyChar();
+        if(character != '.') {
+            if (((character < '0') || (character > '9'))
+                    && (character != '\b')) {
+                e.consume();
+            }
+        }
 
     }
 

@@ -9,6 +9,7 @@ public class Gui implements ActionListener{
     JButton l1,l2,l3,l4,l5,l6,l7,l8,l9,ll0,lc,lEqual,lDivide,lMultiply,lSub,lAdd,l10,l100,lb;
     JLabel jl1;
     double add=0,sub=0,mul=0,div=0,sol=0;
+    String cadd="",csub="",cmul="",cdiv="";
 
     KeyHandle kh=new KeyHandle(this);
 
@@ -179,9 +180,10 @@ public class Gui implements ActionListener{
                 try {
                     if(!t1.getText().equals("")) {
                         add=Double.parseDouble(t1.getText());
-                        sub=0;
-                        mul=0;
-                        div=0;
+                        cadd="cal";
+                        csub="";
+                        cmul="";
+                        cdiv="";
                         jl1.setText(t1.getText()+"+");
                         jl1.setBounds(5, 5, 400, 20);
                         jl1.setFont(new Font("System",Font.BOLD,18));
@@ -196,10 +198,11 @@ public class Gui implements ActionListener{
             case "-":
                 try {
                     if(!t1.getText().equals("")) {
-                        add=0;
                         sub=Double.parseDouble(t1.getText());
-                        mul=0;
-                        div=0;
+                        cadd="";
+                        csub="cal";
+                        cmul="";
+                        cdiv="";
                         jl1.setText(t1.getText()+"-");
                         jl1.setBounds(5, 5, 400, 20);
                         jl1.setFont(new Font("System",Font.BOLD,18));
@@ -214,10 +217,11 @@ public class Gui implements ActionListener{
             case "*":
                 try {
                     if(!t1.getText().equals("")) {
-                        add=0;
-                        sub=0;
+                        cadd="";
+                        csub="";
+                        cmul="cal";
+                        cdiv="";
                         mul=Double.parseDouble(t1.getText());
-                        div=0;
                         jl1.setText(t1.getText()+"*");
                         jl1.setBounds(5, 5, 400, 20);
                         jl1.setFont(new Font("System",Font.BOLD,18));
@@ -232,9 +236,10 @@ public class Gui implements ActionListener{
             case "/":
                 try {
                     if(!t1.getText().equals("")) {
-                        add=0;
-                        sub=0;
-                        mul=0;
+                        cadd="";
+                        csub="";
+                        cmul="";
+                        cdiv="cal";
                         div=Double.parseDouble(t1.getText());
                         jl1.setText(t1.getText()+"/");
                         jl1.setBounds(5, 5, 400, 20);
@@ -300,28 +305,28 @@ public class Gui implements ActionListener{
                 try {
                     if(!t1.getText().equals("")) {
                         sol=Double.parseDouble(t1.getText());
-                        if(add!=0) {
+                        if(cadd.equals("cal")) {
                             sol=add+sol;
                             String z="";
                             z=z+sol;
                             jl1.setText("");
                             t1.setFont(new Font("System",Font.BOLD,30));
                             t1.setText(z);
-                        }else if(sub!=0) {
+                        }else if(csub.equals("cal")) {
                             sol=sub-sol;
                             String z="";
                             z=z+sol;
                             jl1.setText("");
                             t1.setFont(new Font("System",Font.BOLD,30));
                             t1.setText(z);
-                        }else if(mul!=0) {
+                        }else if(cmul.equals("cal")) {
                             sol=mul*sol;
                             String z="";
                             z=z+sol;
                             jl1.setText("");
                             t1.setFont(new Font("System",Font.BOLD,30));
                             t1.setText(z);
-                        }else if(div!=0) {
+                        }else if(cdiv.equals("cal")) {
                             sol=div/sol;
                             String z="";
                             z=z+sol;
